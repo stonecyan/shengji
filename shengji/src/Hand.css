@@ -1,0 +1,35 @@
+.hhand {
+	display: inline-block; 
+}
+.hhand img.card { 
+	padding-top: 10px;
+}
+.hhand.active-hand img.card:hover { 
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+.hhand-compact { 
+	display: inline-block; 
+}
+.hhand-compact img.card:first-child { 
+	margin-left: 0px;
+	padding-top: 10px;
+}
+.hhand-compact img.card { 
+	margin-left: -40px;
+	padding-top: 10px;
+}
+.hhand-compact.active-hand img.card:hover { 
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+
+img.card {
+	width: 70px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: initial;
+	box-sizing: initial;
+}
