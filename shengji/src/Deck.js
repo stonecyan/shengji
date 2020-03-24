@@ -12,7 +12,7 @@ export default class ShengJiDeck{
 		for (s=0; s<suits.length; s++){
 			c=0;
 			for (c=2; c<15; c++){
-				var card = {value: c, suit: suits[s], point: false, trump: false};
+				var card = {value: c, suit: suits[s], point: false, trump: false, player: null};
 				if (c===5 || c===10 || c===13)
 				card.point = true;
 				deck.push(card);
