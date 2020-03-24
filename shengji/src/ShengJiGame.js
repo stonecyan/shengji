@@ -11,7 +11,8 @@ class ShengJiGame extends Component{
       DiPai: [],
       Points: 0,
       TrumpCard: new Array(2),
-      TrumpSuit: ''
+      TrumpSuit: '',
+      playedCards: []
     };
     this.createPlayers.bind(this);
     this.dealCards.bind(this);
@@ -95,10 +96,7 @@ class ShengJiGame extends Component{
       return newArray.concat(this.quickSort(left), pivotCard, this.quickSort(right));
 
     }
-
   }
-
-
 
   render() {
     this.state.Deck.shuffle();

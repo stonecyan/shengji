@@ -1,31 +1,31 @@
 .hhand {
 	display: inline-block; 
 }
-.hhand img.card { 
+.hhand div.card { 
 	padding-top: 10px;
 }
-.hhand.active-hand img.card:hover { 
+.hhand.active-hand div.card:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
 
 .hhand-compact { 
-	display: inline-block; 
+	display: flex; 
 }
-.hhand-compact img.card:first-child { 
+.hhand-compact div.card:first-child { 
 	margin-left: 0px;
 	padding-top: 10px;
 }
-.hhand-compact img.card { 
+.hhand-compact div.card { 
 	margin-left: -40px;
 	padding-top: 10px;
 }
-.hhand-compact.active-hand img.card:hover { 
+.hhand-compact.active-hand div.card:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
 
-img.card {
+.card {
 	width: 70px;
 	margin: 0;
 	padding: 0;
