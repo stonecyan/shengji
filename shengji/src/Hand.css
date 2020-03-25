@@ -1,12 +1,9 @@
-.hhand {
-	display: inline-block; 
+.hand {
+	padding: 0;
+	margin: 0;
 }
-.hhand div.card { 
-	padding-top: 10px;
-}
-.hhand.active-hand div.card:hover { 
-	padding-top: 0px;
-	padding-bottom: 10px;
+img.card { 
+	cursor: pointer;
 }
 
 .hhand-compact { 
@@ -17,15 +14,15 @@
 	padding-top: 10px;
 }
 .hhand-compact div.card { 
-	margin-left: -40px;
+	margin-left: -35px;
 	padding-top: 10px;
 }
-.hhand-compact.active-hand div.card:hover { 
+.hhand-compact div.card:hover { 
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
 
-.card {
+img.card {
 	width: 70px;
 	margin: 0;
 	padding: 0;

@@ -4,7 +4,7 @@ import './Hand.css';
 
 const Hand = props => {
 	return (
-		<div className="hhand-compact">
+		<div className="hand hhand-compact">
 			{props.playerHand.map((card, index) =>(
 				<PlayingCard cardValue={card}/>
 				)
