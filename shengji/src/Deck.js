@@ -9,19 +9,20 @@ export default class ShengJiDeck{
 		let bigJoker = {value:25, suit: 't', point: false, trump: true};
 		var s;
 		var c;
+		let i=0;
 		for (s=0; s<suits.length; s++){
 			c=0;
 			for (c=2; c<15; c++){
-				var card = {value: c, suit: suits[s], point: false, trump: false, player: null};
+				var card = {value: c, suit: suits[s], point: false, trump: false, player: null, id: i};
 				if (c===5 || c===10 || c===13)
 				card.point = true;
 				deck.push(card);
 				deck.push(card);
+				i++;
 			}
 			
 		}
-		var i;
-		for (i=0; i<2; i++){
+		for (let j=0; j<2; j++){
 			deck.push(smallJoker);
 			deck.push(bigJoker);
 		}

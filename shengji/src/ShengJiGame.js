@@ -14,10 +14,12 @@ class ShengJiGame extends Component{
       TrumpSuit: '',
       playedCards: []
     };
-    this.createPlayers.bind(this);
+    this.createPlayers = this.createPlayers.bind(this);
+    this.startGame = this.startGame.bind(this);
     this.dealCards.bind(this);
     this.sortHands.bind(this);
     this.quickSort.bind(this);
+    this.updatePlayedCards = this.updatePlayedCards.bind(this);
   }
   createPlayers(){
     for (let i=1; i<5; i++){
@@ -74,7 +76,7 @@ class ShengJiGame extends Component{
       for (let c=0; c<hearts.length; c++){newHand.push(hearts[c])}
       for (let d=0; d<spades.length; d++){newHand.push(spades[d])}
       for (let e=0; e<trumps.length; e++){newHand.push(trumps[e])}  
-      this.state.Players[i].Hand = newHand;
+      players[i].Hand = newHand;
     }
   }
 
@@ -95,34 +97,52 @@ class ShengJiGame extends Component{
         }
       }
       return newArray.concat(this.quickSort(left), pivotCard, this.quickSort(right));
-
     }
   }
 
-  render() {
+  updatePlayedCards(cards){
+    let playedCards = this.state.playedCards;
+    for (let i=0; i<cards.length; i++){
+      playedCards.push(cards[i]);
+      this.removeCardFromHand(cards[i]);
+    }
+    console.log(this.state.playedCards);
+  }
+
+  removeCardFromHand(card){
+    let player = card.player
+    let hand = this.state.Players[player].Hand
+    for (let i=0; i<hand.length; i++){
+      if (hand[i]===card){
+        hand.splice(i,1)
+      }
+    }
+  }
+
+  startGame(){
     this.state.Deck.shuffle();
     this.createPlayers();
     this.dealCards();
+    this.forceUpdate();
+  }
+
+  componentDidUpdate(){
+    console.log(this.state);
+  }
+
+  render() {
     console.log(this.state.Deck);
     console.log(this.state.Players);
     console.log(this.state.DiPai);
+    const renderHands = () =>{
+      if(this.state.Players.length>0){
+        return <Hand playerHand = {this.state.Players[0].Hand} updatePlayedCards={this.updatePlayedCards} />
+      }
+    }
     return(
       <div>
-        <div>      
-          <Hand playerHand = {this.state.Players[0].Hand} />
-        </div>
-        <div>
-          <Hand playerHand = {this.state.Players[1].Hand} />
-        </div>
-        <div>
-          <Hand playerHand = {this.state.Players[2].Hand} />
-        </div>
-        <div>
-          <Hand playerHand = {this.state.Players[3].Hand} />
-        </div>
-        <div>
-          <Hand playerHand = {this.state.DiPai} />
-        </div>
+        <button onClick={this.startGame}>Start Game</button>
+        {renderHands()}
       </div>
       
     ) 
