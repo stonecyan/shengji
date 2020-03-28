@@ -106,7 +106,7 @@ class ShengJiGame extends Component{
       playedCards.push(cards[i]);
       this.removeCardFromHand(cards[i]);
     }
-    console.log(this.state.playedCards);
+    this.forceUpdate();
   }
 
   removeCardFromHand(card){
@@ -131,18 +131,22 @@ class ShengJiGame extends Component{
   }
 
   render() {
-    console.log(this.state.Deck);
-    console.log(this.state.Players);
-    console.log(this.state.DiPai);
     const renderHands = () =>{
       if(this.state.Players.length>0){
         return <Hand playerHand = {this.state.Players[0].Hand} updatePlayedCards={this.updatePlayedCards} />
       }
     }
+
+    const renderStartGame = () =>{
+      if(this.state.Players.length==0){
+        return <button onClick={this.startGame}>Start Game</button>
+      }
+    }
     return(
       <div>
-        <button onClick={this.startGame}>Start Game</button>
+        {renderStartGame()}
         {renderHands()}
+        <Hand playerHand = {this.state.playedCards} />
       </div>
       
     ) 
