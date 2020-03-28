@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PlayingCard from "./PlayingCard.js";
+import PlayedCard from "./PlayedCard.js";
 
 class PlayedCards extends Component{
 	render(){
@@ -7,7 +7,7 @@ class PlayedCards extends Component{
 		<div>
 			<div className="hand hhand-compact">
 				{this.props.cards.map((card, index) =>(
-					<PlayingCard cardValue={card} />
+					<PlayedCard cardValue={card} />
 					)
 				)}
 			</div>
