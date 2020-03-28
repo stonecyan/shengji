@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ShengJiDeck from "./Deck";
 import Hand from "./Hand";
+import PlayedCards from "./PlayedCards";
 
 class ShengJiGame extends Component{
 	constructor(props){
@@ -131,6 +132,7 @@ class ShengJiGame extends Component{
   }
 
   render() {
+    console.log(this.state);
     const renderHands = () =>{
       if(this.state.Players.length>0){
         return <Hand playerHand = {this.state.Players[0].Hand} updatePlayedCards={this.updatePlayedCards} />
@@ -146,7 +148,7 @@ class ShengJiGame extends Component{
       <div>
         {renderStartGame()}
         {renderHands()}
-        <Hand playerHand = {this.state.playedCards} />
+        <PlayedCards cards = {this.state.playedCards} />
       </div>
       
     ) 

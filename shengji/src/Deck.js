@@ -11,16 +11,20 @@ export default class ShengJiDeck{
 		var c;
 		let i=0;
 		for (s=0; s<suits.length; s++){
-			c=0;
 			for (c=2; c<15; c++){
 				var card = {value: c, suit: suits[s], point: false, trump: false, player: null, id: i};
-				if (c===5 || c===10 || c===13)
-				card.point = true;
-				deck.push(card);
+				if (c===5 || c===10 || c===13){
+					card.point = true;
+				}
 				deck.push(card);
 				i++;
-			}
-			
+				var card = {value: c, suit: suits[s], point: false, trump: false, player: null, id: i};
+				if (c===5 || c===10 || c===13){
+					card.point = true;
+				}
+				deck.push(card);
+				i++;
+			}			
 		}
 		for (let j=0; j<2; j++){
 			deck.push(smallJoker);
